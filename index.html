@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srivardhan Bathula — AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg2: #111118;
+  --bg3: #1a1a24;
+  --surface: #16161f;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.14);
+  --text: #f0f0f5;
+  --text2: #9898aa;
+  --text3: #5a5a70;
+  --accent: #6366f1;
+  --accent2: #818cf8;
+  --accent3: #c7d2fe;
+  --green: #10b981;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --teal: #14b8a6;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="light"] {
+  --bg: #f8f8fc;
+  --bg2: #f0f0f8;
+  --bg3: #e8e8f4;
+  --surface: #ffffff;
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.14);
+  --text: #0f0f1a;
+  --text2: #4a4a66;
+  --text3: #8a8aa0;
+  --accent: #4f46e5;
+  --accent2: #6366f1;
+  --accent3: #4338ca;
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  transition: background var(--transition), color var(--transition);
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  height: 64px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  transition: background var(--transition);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-logo span { color: var(--accent2); }
+.nav-links {
+  display: flex; align-items: center; gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.875rem;
+  color: var(--text2);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.nav-links a:hover { color: var(--text); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+
+/* Theme toggle */
+.theme-toggle {
+  width: 44px; height: 24px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: background var(--transition);
+  outline: none;
+}
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 16px; height: 16px;
+  background: var(--accent2);
+  border-radius: 50%;
+  transition: transform var(--transition);
+}
+[data-theme="light"] .theme-toggle::after { transform: translateX(20px); }
+
+.nav-cta {
+  padding: 0.5rem 1.25rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: opacity var(--transition);
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 7rem clamp(1.5rem, 8vw, 8rem) 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(99,102,241,0.12) 0%, transparent 70%);
+}
+[data-theme="light"] .hero-bg {
+  background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(99,102,241,0.06) 0%, transparent 70%);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.03;
+  background-image: linear-gradient(var(--text) 1px, transparent 1px), linear-gradient(90deg, var(--text) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: var(--accent2);
+  font-family: var(--font-mono);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.6s ease both;
+}
+.hero-badge::before {
+  content: '';
+  width: 7px; height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  animation: fadeUp 0.6s 0.1s ease both;
+  margin-bottom: 1.5rem;
+}
+h1 .name { display: block; }
+h1 .role {
+  display: block;
+  color: var(--accent2);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--text2);
+  max-width: 560px;
+  line-height: 1.7;
+  animation: fadeUp 0.6s 0.2s ease both;
+  margin-bottom: 2.5rem;
+}
+.hero-actions {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.3s ease both;
+  margin-bottom: 4rem;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform var(--transition), opacity var(--transition);
+}
+.btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background var(--transition), transform var(--transition);
+}
+.btn-secondary:hover { background: var(--surface); transform: translateY(-2px); }
+
+/* ── Stats Bar ── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.stat-item {
+  background: var(--surface);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  transition: background var(--transition);
+}
+.stat-item:hover { background: var(--bg3); }
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-number .stat-accent { color: var(--accent2); }
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text3);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Sections ── */
+section {
+  padding: 6rem clamp(1.5rem, 8vw, 8rem);
+}
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent2);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 3rem;
+}
+.section-title span { color: var(--accent2); }
+
+/* ── Projects Bento Grid ── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+.bento-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--transition), transform var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.bento-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(99,102,241,0.07), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.bento-card:hover::before { opacity: 1; }
+.bento-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-3px);
+}
+.bento-card.large { grid-column: span 7; }
+.bento-card.medium { grid-column: span 5; }
+.bento-card.small { grid-column: span 4; }
+.bento-card.wide { grid-column: span 8; }
+
+.card-tag {
+  display: inline-flex; align-items: center;
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.tag-indigo { background: rgba(99,102,241,0.12); color: #a5b4fc; }
+.tag-green { background: rgba(16,185,129,0.12); color: #6ee7b7; }
+.tag-amber { background: rgba(245,158,11,0.12); color: #fcd34d; }
+.tag-teal { background: rgba(20,184,166,0.12); color: #5eead4; }
+[data-theme="light"] .tag-indigo { background: rgba(99,102,241,0.1); color: #4f46e5; }
+[data-theme="light"] .tag-green { background: rgba(16,185,129,0.1); color: #059669; }
+[data-theme="light"] .tag-amber { background: rgba(245,158,11,0.1); color: #d97706; }
+[data-theme="light"] .tag-teal { background: rgba(20,184,166,0.1); color: #0d9488; }
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text2);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+.card-metrics {
+  display: flex; gap: 1.5rem; flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.metric {
+  display: flex; flex-direction: column; gap: 0.2rem;
+}
+.metric-value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.metric-value.green { color: var(--green); }
+.metric-value.amber { color: var(--amber); }
+.metric-value.indigo { color: var(--accent2); }
+.metric-label {
+  font-size: 0.72rem;
+  color: var(--text3);
+  font-family: var(--font-mono);
+}
+.card-stack {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+}
+.stack-chip {
+  padding: 0.2rem 0.6rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 0.72rem;
+  color: var(--text2);
+  font-family: var(--font-mono);
+  transition: background var(--transition);
+}
+.bento-card:hover .stack-chip { background: var(--bg2); }
+.card-arrow {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  width: 36px; height: 36px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  color: var(--text3);
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.bento-card:hover .card-arrow {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  transform: translate(2px, -2px);
+}
+
+/* ── Skills Section ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+.skill-card-icon {
+  width: 44px; height: 44px;
+  background: var(--bg3);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+.skill-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.skill-tags {
+  display: flex; flex-wrap: wrap; gap: 0.4rem;
+}
+.skill-tag {
+  padding: 0.25rem 0.65rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 0.75rem;
+  color: var(--text2);
+  font-family: var(--font-mono);
+}
+
+/* ── Experience Timeline ── */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 1px;
+  background: var(--border2);
+}
+.timeline-item { position: relative; }
+.timeline-dot {
+  position: absolute;
+  left: -2.35rem; top: 6px;
+  width: 12px; height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+}
+.timeline-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.timeline-company {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent2);
+  padding: 0.2rem 0.7rem;
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 5px;
+}
+.timeline-role {
+  color: var(--text2);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.timeline-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.timeline-bullets li {
+  font-size: 0.9rem;
+  color: var(--text2);
+  padding-left: 1.25rem;
+  position: relative;
+  line-height: 1.6;
+}
+.timeline-bullets li::before {
+  content: '▸';
+  position: absolute; left: 0;
+  color: var(--accent2);
+  font-size: 0.75rem;
+}
+.timeline-bullets li strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ── Contact ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex; align-items: center; gap: 1.25rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.contact-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+}
+.contact-icon {
+  width: 48px; height: 48px;
+  background: var(--bg3);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.contact-label {
+  font-size: 0.78rem;
+  color: var(--text3);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
+.contact-value {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* ── Footer ── */
+footer {
+  padding: 2rem clamp(1.5rem, 8vw, 8rem);
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-text {
+  font-size: 0.85rem;
+  color: var(--text3);
+  font-family: var(--font-mono);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .bento-card.large, .bento-card.medium, .bento-card.small, .bento-card.wide {
+    grid-column: span 12;
+  }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+@media (max-width: 600px) {
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 2.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="#" class="nav-logo">Sri<span>.</span>AI</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+    <a href="https://github.com/SrivardhanBathula" class="nav-cta" target="_blank">GitHub →</a>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available for AI/ML roles</div>
+    <h1>
+      <span class="name">Srivardhan Bathula</span>
+      <span class="role">AI/ML Engineer</span>
+    </h1>
+    <p class="hero-desc">
+      Building production-grade AI systems that process 500M+ records daily. Specializing in LLMs, RAG pipelines, agentic workflows, and MLOps at enterprise scale.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View Projects ↓</a>
+      <a href="mailto:srivardhan.bathula.ai@gmail.com" class="btn-secondary">Get in Touch</a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="500">0</span><span class="stat-accent">M+</span></div>
+        <div class="stat-label">Records / Day</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="3">0</span><span class="stat-accent">+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="stat-accent">$2M</span></div>
+        <div class="stat-label">Annual Savings</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="99">0</span><span class="stat-accent">.9%</span></div>
+        <div class="stat-label">System Uptime</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Projects ── -->
+<section id="projects">
+  <div class="section-label">Featured Work</div>
+  <h2 class="section-title">Projects that <span>ship to production</span></h2>
+  <div class="bento-grid">
+
+    <!-- Card 1 - Large -->
+    <a href="https://github.com/SrivardhanBathula/financial-crime-detection-platform" target="_blank" class="bento-card large reveal">
+      <div class="card-arrow">↗</div>
+      <div class="card-tag tag-indigo">Financial AI · Production</div>
+      <div class="card-title">Financial Crime Detection Platform</div>
+      <p class="card-desc">Real-time fraud detection system processing 500M+ daily financial records. LangGraph multi-agent investigation workflows with RAG over Amazon OpenSearch.</p>
+      <div class="card-metrics">
+        <div class="metric">
+          <div class="metric-value green">0.87</div>
+          <div class="metric-label">F1 Score</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value amber">$2M</div>
+          <div class="metric-label">Annual Savings</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value indigo">99.9%</div>
+          <div class="metric-label">Uptime</div>
+        </div>
+      </div>
+      <div class="card-stack">
+        <span class="stack-chip">XGBoost</span>
+        <span class="stack-chip">LangGraph</span>
+        <span class="stack-chip">RAG</span>
+        <span class="stack-chip">AWS SageMaker</span>
+        <span class="stack-chip">FastAPI</span>
+        <span class="stack-chip">MLflow</span>
+      </div>
+    </a>
+
+    <!-- Card 2 - Medium -->
+    <a href="https://github.com/SrivardhanBathula/healthcare-intelligence-platform" target="_blank" class="bento-card medium reveal">
+      <div class="card-arrow">↗</div>
+      <div class="card-tag tag-teal">Healthcare AI · HIPAA</div>
+      <div class="card-title">Healthcare Intelligence Platform</div>
+      <p class="card-desc">Clinical NLP and ICU risk forecasting on 10M+ daily EHR records. ClinicalBERT NER achieving 91% precision across 18 entity types.</p>
+      <div class="card-metrics">
+        <div class="metric">
+          <div class="metric-value green">91%</div>
+          <div class="metric-label">NER Precision</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value indigo">+25%</div>
+          <div class="metric-label">ICU Accuracy</div>
+        </div>
+      </div>
+      <div class="card-stack">
+        <span class="stack-chip">ClinicalBERT</span>
+        <span class="stack-chip">spaCy</span>
+        <span class="stack-chip">OMOP CDM</span>
+        <span class="stack-chip">XGBoost</span>
+      </div>
+    </a>
+
+    <!-- Card 3 - Small -->
+    <a href="https://github.com/SrivardhanBathula/rag-document-intelligence" target="_blank" class="bento-card small reveal">
+      <div class="card-arrow">↗</div>
+      <div class="card-tag tag-amber">RAG · Open Source</div>
+      <div class="card-title">RAG Document Intelligence</div>
+      <p class="card-desc">Hybrid FAISS+BM25 retrieval with cross-encoder reranking and LLM-as-a-Judge faithfulness guard.</p>
+      <div class="card-metrics">
+        <div class="metric">
+          <div class="metric-value green">0.94</div>
+          <div class="metric-label">RAGAS Score</div>
+        </div>
+      </div>
+      <div class="card-stack">
+        <span class="stack-chip">LangChain</span>
+        <span class="stack-chip">FAISS</span>
+        <span class="stack-chip">OpenAI</span>
+      </div>
+    </a>
+
+    <!-- Card 4 - Wide -->
+    <a href="https://github.com/SrivardhanBathula/llm-evaluation-safety-framework" target="_blank" class="bento-card wide reveal">
+      <div class="card-arrow">↗</div>
+      <div class="card-tag tag-green">LLM Safety · Evaluation</div>
+      <div class="card-title">LLM Evaluation & Safety Framework</div>
+      <p class="card-desc">Comprehensive evaluation framework covering hallucination detection, prompt injection resistance testing across 50+ adversarial patterns, demographic bias auditing, and LLM-as-a-Judge scoring with configurable rubrics.</p>
+      <div class="card-metrics">
+        <div class="metric">
+          <div class="metric-value green">94%</div>
+          <div class="metric-label">Injection Resistance</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value indigo">50+</div>
+          <div class="metric-label">Attack Patterns</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value amber">3</div>
+          <div class="metric-label">Bias Attributes</div>
+        </div>
+      </div>
+      <div class="card-stack">
+        <span class="stack-chip">DeepEval</span>
+        <span class="stack-chip">Arize Phoenix</span>
+        <span class="stack-chip">GPT-4o Judge</span>
+        <span class="stack-chip">RAGAS</span>
+        <span class="stack-chip">pytest CI/CD</span>
+      </div>
+    </a>
+
+    <!-- Card 5 - Small -->
+    <a href="https://github.com/SrivardhanBathula" target="_blank" class="bento-card small reveal" style="background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(129,140,248,0.05)); border-color: rgba(99,102,241,0.25);">
+      <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+      <div class="card-title" style="font-size: 1.1rem;">More on GitHub</div>
+      <p class="card-desc" style="font-size: 0.85rem;">Notebooks, benchmarks, MLOps pipelines, and more open-source AI work.</p>
+      <div style="margin-top: auto; color: var(--accent2); font-size: 0.85rem; font-family: var(--font-mono);">github.com/SrivardhanBathula →</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── Skills ── -->
+<section id="skills" style="background: var(--bg2);">
+  <div class="section-label">Technical Expertise</div>
+  <h2 class="section-title">Full-stack <span>AI/ML skills</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🤖</div>
+      <div class="skill-card-title">Agentic AI & LLMs</div>
+      <div class="skill-tags">
+        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span>
+        <span class="skill-tag">LlamaIndex</span><span class="skill-tag">OpenAI API</span>
+        <span class="skill-tag">RAG</span><span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">ReAct</span><span class="skill-tag">Fine-Tuning</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🧠</div>
+      <div class="skill-card-title">ML & Deep Learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">XGBoost</span><span class="skill-tag">Scikit-Learn</span>
+        <span class="skill-tag">BERT</span><span class="skill-tag">ClinicalBERT</span>
+        <span class="skill-tag">spaCy</span><span class="skill-tag">Transformers</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">☁️</div>
+      <div class="skill-card-title">MLOps & Cloud</div>
+      <div class="skill-tags">
+        <span class="skill-tag">AWS SageMaker</span><span class="skill-tag">MLflow</span>
+        <span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span>
+        <span class="skill-tag">Terraform</span><span class="skill-tag">Airflow</span>
+        <span class="skill-tag">CI/CD</span><span class="skill-tag">Evidently AI</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🔍</div>
+      <div class="skill-card-title">Vector DBs & Search</div>
+      <div class="skill-tags">
+        <span class="skill-tag">FAISS</span><span class="skill-tag">Pinecone</span>
+        <span class="skill-tag">Amazon OpenSearch</span>
+        <span class="skill-tag">ChromaDB</span><span class="skill-tag">BM25</span>
+        <span class="skill-tag">Semantic Search</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">⚡</div>
+      <div class="skill-card-title">Data Engineering</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PySpark</span><span class="skill-tag">Databricks</span>
+        <span class="skill-tag">Apache Kafka</span><span class="skill-tag">Airflow</span>
+        <span class="skill-tag">SQL</span><span class="skill-tag">AWS Redshift</span>
+        <span class="skill-tag">S3</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🛡️</div>
+      <div class="skill-card-title">AI Safety & Compliance</div>
+      <div class="skill-tags">
+        <span class="skill-tag">DeepEval</span><span class="skill-tag">Arize Phoenix</span>
+        <span class="skill-tag">RAGAS</span><span class="skill-tag">HIPAA</span>
+        <span class="skill-tag">AML/BSA</span><span class="skill-tag">OMOP CDM</span>
+        <span class="skill-tag">Bias Detection</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Experience ── -->
+<section id="experience">
+  <div class="section-label">Career</div>
+  <h2 class="section-title">Where I've <span>built things</span></h2>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">
+        <div class="timeline-company">State Street</div>
+        <div class="timeline-period">Oct 2025 — Present</div>
+      </div>
+      <div class="timeline-role">AI/ML Engineer · Kansas, USA</div>
+      <ul class="timeline-bullets">
+        <li>Improved fraud detection <strong>F1 from 0.74 to 0.87</strong> on 500M+ daily financial records using XGBoost and TensorFlow ensembles.</li>
+        <li>Reduced false positives by 15%, saving <strong>$2M annually</strong> in investigation costs.</li>
+        <li>Built LangGraph multi-agent investigation workflows, increasing analyst throughput from <strong>40 to 52 cases/day</strong>.</li>
+        <li>Deployed 6 production microservices on AWS SageMaker at <strong>99.9% uptime</strong> with full MLOps observability.</li>
+      </ul>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-header">
+        <div class="timeline-company">HCL Technologies</div>
+        <div class="timeline-period">Sept 2021 — Jul 2024</div>
+      </div>
+      <div class="timeline-role">AI/ML Engineer · India</div>
+      <ul class="timeline-bullets">
+        <li>Built ClinicalBERT NER pipelines achieving <strong>91% precision</strong> across 18 entity types on 500K+ clinical notes.</li>
+        <li>Processed <strong>10M+ daily clinical records</strong> through distributed EHR pipelines standardized to OMOP CDM.</li>
+        <li>Developed ICU risk forecasting models boosting clinical prediction accuracy by <strong>25%</strong>.</li>
+        <li>Reduced operational reporting overhead by <strong>40%</strong> through automated MLflow and Airflow pipelines.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact" style="background: var(--bg2);">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Open to <span>new opportunities</span></h2>
+  <div class="contact-grid">
+    <a href="mailto:srivardhan.bathula.ai@gmail.com" class="contact-card reveal">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">srivardhan.bathula.ai@gmail.com</div>
+      </div>
+    </a>
+    <a href="https://linkedin.com/in/srivardhanb" target="_blank" class="contact-card reveal">
+      <div class="contact-icon">💼</div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">linkedin.com/in/srivardhanb</div>
+      </div>
+    </a>
+    <a href="https://github.com/SrivardhanBathula" target="_blank" class="contact-card reveal">
+      <div class="contact-icon">⚡</div>
+      <div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-value">github.com/SrivardhanBathula</div>
+      </div>
+    </a>
+    <a href="tel:+19134073539" class="contact-card reveal">
+      <div class="contact-icon">📱</div>
+      <div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+1 913-407-3539</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-text">© 2026 Srivardhan Bathula · Built with purpose</div>
+  <div class="footer-text">Kansas, USA · Open to Remote</div>
+</footer>
+
+<script>
+const toggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+const saved = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', saved);
+toggle.addEventListener('click', () => {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
+
+// Counter animation
+const counters = document.querySelectorAll('.counter');
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const duration = 1500;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.floor(current);
+        if (current >= target) clearInterval(timer);
+      }, 16);
+      countObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => countObs.observe(c));
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      revObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => revObs.observe(r));
+
+// Bento card spotlight
+document.querySelectorAll('.bento-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mx', x + '%');
+    card.style.setProperty('--my', y + '%');
+  });
+});
+
+// Active nav highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+  });
+});
+</script>
+</body>
+</html>
