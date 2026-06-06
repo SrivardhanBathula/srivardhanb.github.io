@@ -4,833 +4,280 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Srivardhan Bathula — AI/ML Engineer</title>
-<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Satoshi:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&family=JetBrains+Mono:wght@400;500&display=swap');
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-  background: #F0EEE8;
-  color: #0A0A08;
-  font-size: 15px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-a { color: inherit; text-decoration: none; }
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: #F0EEE8; }
-::-webkit-scrollbar-thumb { background: #C8C4BA; border-radius: 3px; }
-
-/* ── TOPBAR ── */
-.topbar {
-  position: sticky; top: 0; z-index: 200;
-  background: rgba(240,238,232,0.92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0,0,0,0.07);
-  padding: 0 2rem;
-  height: 58px;
-  display: flex; align-items: center; justify-content: space-between;
-}
-.tb-brand {
-  display: flex; align-items: center; gap: .65rem;
-}
-.tb-av {
-  width: 32px; height: 32px;
-  background: #0A0A08; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: #F0EEE8; font-size: .62rem; font-weight: 700;
-  letter-spacing: .02em;
-}
-.tb-name { font-size: .9rem; font-weight: 700; letter-spacing: -.02em; }
-.tb-right { display: flex; align-items: center; gap: .6rem; }
-.tb-status {
-  display: inline-flex; align-items: center; gap: .35rem;
-  padding: .22rem .7rem; border-radius: 100px;
-  background: rgba(16,185,129,0.1);
-  border: 1px solid rgba(16,185,129,0.2);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .58rem; color: #059669; letter-spacing: .04em;
-}
-.tb-dot { width: 5px; height: 5px; background: #10B981; border-radius: 50%; animation: blink 2s infinite; }
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
-.tb-btn {
-  padding: .38rem 1.1rem;
-  background: #0A0A08; color: #F0EEE8;
-  border-radius: 100px; font-size: .78rem; font-weight: 600;
-  letter-spacing: -.01em; transition: opacity .2s;
-}
-.tb-btn:hover { opacity: .8; }
-
-/* ── HERO ── */
-.hero {
-  background: #0A0A08;
-  padding: 4rem 2rem 3rem;
-  position: relative; overflow: hidden;
-  min-height: 420px;
-  display: flex; flex-direction: column; justify-content: flex-end;
-}
-.hero-mesh {
-  position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(59,130,246,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(16,185,129,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(139,92,246,0.08) 0%, transparent 70%);
-}
-.hero-grid {
-  position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 44px 44px;
-}
-.hero-wordmark {
-  position: absolute; right: -20px; top: 10px;
-  font-size: clamp(130px, 26vw, 280px);
-  font-weight: 900; letter-spacing: -.06em;
-  color: rgba(255,255,255,.03);
-  line-height: .85; pointer-events: none; user-select: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-.hero-content { position: relative; z-index: 1; }
-.hero-eyebrow {
-  display: flex; align-items: center; gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.hero-year {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .65rem; color: rgba(255,255,255,.3);
-  letter-spacing: .1em;
-}
-.hero-name {
-  font-size: clamp(2.8rem, 8vw, 6rem);
-  font-weight: 900; color: #fff;
-  line-height: .95; letter-spacing: -.04em;
-  margin-bottom: .6rem;
-}
-.hero-name-light {
-  display: block;
-  font-weight: 300; font-style: italic;
-  color: rgba(255,255,255,.35);
-  font-size: .55em; letter-spacing: -.01em;
-  margin-top: .15em;
-}
-.hero-desc {
-  font-size: clamp(.85rem, 1.5vw, 1rem);
-  color: rgba(255,255,255,.45);
-  font-weight: 300; max-width: 480px;
-  line-height: 1.65; margin-bottom: 1.75rem;
-}
-.hero-tags { display: flex; flex-wrap: wrap; gap: .35rem; }
-.htag {
-  padding: .22rem .75rem; border-radius: 100px;
-  border: 1px solid rgba(255,255,255,.12);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .6rem; color: rgba(255,255,255,.5);
-  transition: .2s;
-}
-.htag:hover { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.8); }
-
-/* ── STAT BAR ── */
-.statbar {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  background: #fff;
-  border-bottom: 2px solid #0A0A08;
-}
-.sc {
-  padding: 1.4rem 1.5rem;
-  border-right: 1px solid #ECEAE4;
-  transition: background .2s;
-}
-.sc:last-child { border-right: none; }
-.sc:hover { background: #F8F6F0; }
-.sc-n {
-  font-size: 1.8rem; font-weight: 800;
-  letter-spacing: -.04em; line-height: 1;
-  margin-bottom: .25rem;
-}
-.sc-n.blue { color: #2563EB; }
-.sc-n.green { color: #059669; }
-.sc-n.orange { color: #D97706; }
-.sc-l {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .58rem; color: #A8A49C;
-  text-transform: uppercase; letter-spacing: .07em;
-}
-
-/* ── TABS ── */
-.tabs {
-  background: #fff;
-  padding: 0 2rem;
-  display: flex; gap: 0;
-  border-bottom: 1px solid #ECEAE4;
-  position: sticky; top: 58px; z-index: 100;
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
-}
-.tabs::-webkit-scrollbar { display: none; }
-.tab {
-  padding: .85rem 1.35rem;
-  font-size: .78rem; font-weight: 500;
-  color: #A8A49C;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px; cursor: pointer;
-  white-space: nowrap; transition: .2s;
-  letter-spacing: .01em;
-}
-.tab.active { color: #0A0A08; border-bottom-color: #2563EB; }
-.tab:hover:not(.active) { color: #555; }
-
-/* ── CONTENT ── */
-.content {
-  max-width: 920px; margin: 0 auto;
-  padding: 1.4rem 2rem;
-  display: flex; flex-direction: column; gap: 1.1rem;
-}
-
-/* ── ABOUT GRID ── */
-.about-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 1.1rem; }
-
-.profile-card {
-  border-radius: 20px; overflow: hidden;
-  min-height: 220px; position: relative;
-  background: #0A0A08;
-}
-.pc-mesh {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(37,99,235,.5) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(139,92,246,.3) 0%, transparent 60%);
-}
-.pc-inner {
-  position: relative; z-index: 1;
-  padding: 1.5rem; height: 100%;
-  display: flex; flex-direction: column; justify-content: space-between;
-}
-.pc-top {}
-.pc-hi { font-size: .7rem; color: rgba(255,255,255,.3); margin-bottom: .25rem; font-family: 'JetBrains Mono', monospace; }
-.pc-name { font-size: 1.75rem; font-weight: 900; color: #fff; line-height: 1.0; letter-spacing: -.03em; }
-.pc-role { font-size: .7rem; color: rgba(255,255,255,.35); margin-top: .35rem; font-family: 'JetBrains Mono', monospace; letter-spacing: .03em; }
-.pc-bottom { font-size: .72rem; color: rgba(255,255,255,.25); line-height: 1.5; font-weight: 300; }
-
-.right-stack { display: flex; flex-direction: column; gap: .875rem; }
-
-.bio-card {
-  background: #fff; border-radius: 16px;
-  padding: 1.25rem;
-  border: 1px solid #ECEAE4;
-}
-.bio-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .6rem; color: #C8C4BA;
-  text-transform: uppercase; letter-spacing: .08em;
-  margin-bottom: .65rem;
-}
-.bio-inner {
-  background: #F8F6F0; border-radius: 10px;
-  padding: 1rem; display: flex; gap: .75rem;
-}
-.bio-text-title { font-size: .82rem; font-weight: 700; margin-bottom: .3rem; color: #0A0A08; }
-.bio-text-body { font-size: .78rem; color: #6B6860; line-height: 1.65; font-weight: 300; }
-.bio-text-body strong { color: #0A0A08; font-weight: 600; }
-
-.contact-card {
-  background: #fff; border-radius: 16px;
-  padding: 1.1rem 1.25rem;
-  border: 1px solid #ECEAE4;
-}
-.contact-btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: .45rem; }
-.cbtn {
-  background: #0A0A08; border-radius: 12px;
-  padding: .875rem .5rem;
-  display: flex; flex-direction: column; align-items: center; gap: .3rem;
-  transition: .2s; border: 1px solid transparent;
-}
-.cbtn:hover { background: #2563EB; }
-.cbtn-ico { font-size: 1rem; color: #fff; }
-.cbtn-lbl {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .52rem; color: rgba(255,255,255,.4);
-  text-align: center; line-height: 1.4;
-}
-
-/* ── SECTION HEADER ── */
-.sec-h {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: .875rem;
-}
-.sec-h-left { display: flex; align-items: center; gap: .55rem; }
-.sec-h-pip {
-  width: 7px; height: 7px;
-  background: #2563EB; border-radius: 50%;
-}
-.sec-h-title { font-size: 1.05rem; font-weight: 800; letter-spacing: -.02em; }
-.sec-h-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .6rem; color: #A8A49C;
-  background: #F0EEE8; padding: .12rem .5rem;
-  border-radius: 4px;
-}
-.sec-h-btn {
-  width: 30px; height: 30px; border-radius: 50%;
-  background: #0A0A08; color: #F0EEE8;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .7rem; cursor: pointer; transition: .2s;
-}
-.sec-h-btn:hover { background: #2563EB; }
-
-/* ── EXP CARDS ── */
-.exp-list { display: flex; flex-direction: column; gap: .75rem; }
-.exp-card {
-  background: #0A0A08; border-radius: 18px;
-  padding: 1.35rem 1.5rem;
-  border: 1px solid #1A1A16; transition: border-color .2s;
-}
-.exp-card:hover { border-color: #2A2A24; }
-.exp-card-top {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: .65rem;
-}
-.exp-badge {
-  display: inline-flex; align-items: center; gap: .3rem;
-  padding: .2rem .7rem; border-radius: 100px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .6rem; font-weight: 700;
-}
-.eb-blue { background: #2563EB; color: #fff; }
-.eb-green { background: #059669; color: #fff; }
-.exp-chk {
-  width: 24px; height: 24px; border-radius: 50%;
-  border: 1px solid #2A2A24;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .58rem; color: #444;
-}
-.exp-src {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .6rem; color: #484844; margin-bottom: .3rem;
-}
-.exp-title {
-  font-size: .98rem; font-weight: 700; color: #fff;
-  line-height: 1.3; margin-bottom: .875rem;
-  letter-spacing: -.01em;
-}
-.exp-tl {
-  display: flex; align-items: center; gap: .5rem;
-  margin-bottom: .875rem;
-}
-.exp-tl-lbl {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .58rem; color: #3A3A36; white-space: nowrap;
-}
-.exp-tl-track {
-  flex: 1; height: 3px; background: #1A1A16;
-  border-radius: 2px; position: relative;
-}
-.exp-tl-fill {
-  position: absolute; left: 0; top: 0; bottom: 0;
-  border-radius: 2px;
-}
-.fill-blue { background: #2563EB; }
-.fill-green { background: #059669; }
-.exp-kpis {
-  display: flex; gap: 1.25rem; flex-wrap: wrap;
-  margin-bottom: .875rem;
-  padding: .875rem 1rem;
-  background: #111110; border-radius: 10px;
-  border-left: 2px solid #2563EB;
-}
-.ek-val {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1rem; font-weight: 700; line-height: 1;
-}
-.ek-val.blue { color: #60A5FA; }
-.ek-val.green { color: #34D399; }
-.ek-val.amber { color: #FCD34D; }
-.ek-lbl {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .54rem; color: #3A3A36;
-  margin-top: .12rem; text-transform: uppercase; letter-spacing: .04em;
-}
-.exp-bullets { display: flex; flex-direction: column; gap: .35rem; }
-.exp-b {
-  font-size: .78rem; color: #6A6A64;
-  padding-left: .9rem; position: relative; line-height: 1.6;
-}
-.exp-b::before {
-  content: '▸'; position: absolute; left: 0;
-  color: #2563EB; font-size: .58rem; top: 2px;
-}
-.exp-b b { color: #C8C4BA; font-weight: 500; }
-.exp-tags {
-  display: flex; flex-wrap: wrap; gap: .28rem;
-  margin-top: .875rem; padding-top: .875rem;
-  border-top: 1px solid #1A1A16;
-}
-.exp-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .58rem; color: #3A3A36;
-  padding: .1rem .48rem; background: #141412;
-  border-radius: 4px;
-}
-
-/* ── PROJECT BENTO ── */
-.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: .75rem; }
-.bc {
-  border-radius: 18px; padding: 1.35rem;
-  display: block; color: inherit;
-  transition: transform .2s, box-shadow .2s;
-  position: relative; overflow: hidden;
-}
-.bc:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,.12); }
-.bc.s7 { grid-column: span 7; }
-.bc.s5 { grid-column: span 5; }
-.bc.s4 { grid-column: span 4; }
-.bc.s8 { grid-column: span 8; }
-.bc-white { background: #fff; border: 1px solid #ECEAE4; }
-.bc-dark { background: #0A0A08; border: 1px solid #1A1A16; }
-.bc-blue { background: #2563EB; }
-.bc-slate { background: #111827; border: 1px solid #1F2937; }
-.bc-cat {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .58rem; letter-spacing: .07em;
-  text-transform: uppercase; margin-bottom: .5rem;
-}
-.bc-white .bc-cat { color: #C8C4BA; }
-.bc-dark .bc-cat, .bc-slate .bc-cat { color: #3A3A36; }
-.bc-blue .bc-cat { color: rgba(255,255,255,.5); }
-.bc-title {
-  font-size: 1rem; font-weight: 700;
-  line-height: 1.2; margin-bottom: .5rem;
-  letter-spacing: -.01em;
-}
-.bc-dark .bc-title, .bc-slate .bc-title { color: #fff; }
-.bc-blue .bc-title { color: #fff; }
-.bc-desc { font-size: .75rem; line-height: 1.6; margin-bottom: 1rem; font-weight: 300; }
-.bc-white .bc-desc { color: #7A7870; }
-.bc-dark .bc-desc, .bc-slate .bc-desc { color: #5A5A54; }
-.bc-blue .bc-desc { color: rgba(255,255,255,.6); }
-.bc-kpis { display: flex; gap: 1rem; margin-bottom: .875rem; flex-wrap: wrap; }
-.bk-v { font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; font-weight: 700; letter-spacing: -.03em; line-height: 1; }
-.bk-v.g { color: #059669; }
-.bk-v.b { color: #2563EB; }
-.bk-v.w { color: #fff; }
-.bc-dark .bk-v.g { color: #34D399; }
-.bc-dark .bk-v.b { color: #60A5FA; }
-.bk-l { font-family: 'JetBrains Mono', monospace; font-size: .55rem; margin-top: .1rem; }
-.bc-white .bk-l { color: #C8C4BA; }
-.bc-dark .bk-l, .bc-slate .bk-l { color: #3A3A36; }
-.bc-blue .bk-l { color: rgba(255,255,255,.45); }
-.bc-chips { display: flex; flex-wrap: wrap; gap: .28rem; }
-.bchip { font-family: 'JetBrains Mono', monospace; font-size: .58rem; padding: .1rem .48rem; border-radius: 4px; }
-.bc-white .bchip { background: #F0EEE8; color: #8A8880; }
-.bc-dark .bchip, .bc-slate .bchip { background: #1A1A16; color: #4A4A44; }
-.bc-blue .bchip { background: rgba(255,255,255,.12); color: rgba(255,255,255,.65); }
-.bc-arr {
-  position: absolute; top: 1.1rem; right: 1.1rem;
-  width: 28px; height: 28px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: .72rem; transition: .2s;
-}
-.bc-white .bc-arr { background: #F0EEE8; color: #C8C4BA; }
-.bc-dark .bc-arr, .bc-slate .bc-arr { background: #1A1A16; color: #3A3A36; }
-.bc-blue .bc-arr { background: rgba(255,255,255,.15); color: rgba(255,255,255,.5); }
-.bc:hover .bc-arr { background: #0A0A08 !important; color: #fff !important; transform: rotate(45deg); }
-.bc-blue:hover .bc-arr { background: #fff !important; color: #2563EB !important; }
-
-/* ── SKILLS ── */
-.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; }
-.sk-card {
-  background: #fff; border-radius: 16px;
-  padding: 1.1rem 1.25rem;
-  border: 1px solid #ECEAE4; transition: border-color .2s;
-}
-.sk-card:hover { border-color: #C8C4BA; }
-.sk-card.dk { background: #0A0A08; border-color: #1A1A16; }
-.sk-card.dk:hover { border-color: #2A2A24; }
-.sk-ico { font-size: 1.3rem; margin-bottom: .5rem; }
-.sk-name { font-size: .82rem; font-weight: 700; margin-bottom: .6rem; letter-spacing: -.01em; }
-.sk-card.dk .sk-name { color: #fff; }
-.sk-pills { display: flex; flex-wrap: wrap; gap: .28rem; }
-.skp {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: .6rem; padding: .18rem .58rem; border-radius: 100px;
-  transition: .15s; cursor: default;
-}
-.skp:hover { transform: scale(1.05); }
-.sp-blue { background: #EFF6FF; color: #2563EB; }
-.sp-green { background: #ECFDF5; color: #059669; }
-.sp-dk { background: #1A1A16; color: #6A6A64; }
-.sp-gray { background: #F0EEE8; color: #7A7870; }
-
-/* ── EDU ── */
-.edu-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
-.edu-card {
-  background: #0A0A08; border-radius: 16px;
-  padding: 1.25rem; border: 1px solid #1A1A16;
-  transition: border-color .2s;
-}
-.edu-card:hover { border-color: #2A2A24; }
-.edu-card-in { display: flex; justify-content: space-between; align-items: flex-start; }
-.edu-deg { font-size: .92rem; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: .3rem; }
-.edu-uni { font-size: .75rem; color: #484844; font-family: 'JetBrains Mono', monospace; margin-bottom: .2rem; }
-.edu-loc { font-size: .65rem; color: #2A2A26; font-family: 'JetBrains Mono', monospace; }
-.edu-chk { width: 22px; height: 22px; border: 1px solid #2A2A24; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .58rem; color: #484844; flex-shrink: 0; }
-
-/* ── CONTACT ROW ── */
-.contact-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
-.cl-card {
-  background: #fff; border-radius: 14px;
-  padding: 1.1rem; text-align: center;
-  border: 1px solid #ECEAE4; transition: .2s;
-}
-.cl-card:hover { border-color: #2563EB; background: #F8F6F0; }
-.cl-ico {
-  width: 40px; height: 40px; border-radius: 10px;
-  background: #F0EEE8; margin: 0 auto .6rem;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem;
-}
-.cl-lbl { font-family: 'JetBrains Mono', monospace; font-size: .58rem; color: #C8C4BA; text-transform: uppercase; letter-spacing: .07em; margin-bottom: .2rem; }
-.cl-val { font-size: .75rem; font-weight: 500; color: #0A0A08; }
-
-/* ── FOOTER ── */
-.footer {
-  text-align: center; padding: 2rem 2rem 3rem;
-  border-top: 1px solid #E4E2DC; margin-top: .5rem;
-}
-.footer-text { font-family: 'JetBrains Mono', monospace; font-size: .62rem; color: #C8C4BA; line-height: 1.8; }
-
-/* ── REVEAL ── */
-.rv { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
-.rv.on { opacity: 1; transform: none; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 720px) {
-  .about-grid, .edu-row { grid-template-columns: 1fr; }
-  .bc.s7,.bc.s5,.bc.s4,.bc.s8 { grid-column: span 12; }
-  .skills-grid { grid-template-columns: 1fr 1fr; }
-  .contact-row { grid-template-columns: 1fr 1fr; }
-  .statbar { grid-template-columns: repeat(2, 1fr); }
-  .content { padding: 1.1rem 1rem; }
-  .topbar { padding: 0 1rem; }
-}
-@media (max-width: 480px) {
-  .skills-grid { grid-template-columns: 1fr; }
-  .hero-name { font-size: 2.6rem; }
-  .contact-row { grid-template-columns: 1fr 1fr; }
-}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c14;--surface:#0d1320;--card:#111827;
+  --border:rgba(255,255,255,0.07);
+  --blue:#3b82f6;--blue-dim:#1d4ed8;
+  --blue-glow:rgba(59,130,246,0.12);
+  --blue-border:rgba(59,130,246,0.25);
+  --text:#f5f5f5;--muted:#8a8a9a;--sub:#4a4a5a;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--blue-dim);border-radius:3px}
+a{color:inherit;text-decoration:none}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.35}
+.orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+.orb-1{width:600px;height:600px;background:rgba(59,130,246,0.1);top:-200px;right:-150px}
+.orb-2{width:400px;height:400px;background:rgba(99,102,241,0.07);bottom:10%;left:-150px}
+.orb-3{width:300px;height:300px;background:rgba(16,185,129,0.05);top:50%;left:50%;transform:translate(-50%,-50%)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,12,20,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.05rem;color:var(--text);letter-spacing:-0.02em}
+.nav-logo span{color:var(--blue)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;font-weight:500}
+.nav-links a:hover{color:var(--blue)}
+.nav-badge{display:flex;align-items:center;gap:6px;background:var(--blue-glow);border:1px solid var(--blue-border);border-radius:100px;padding:0.32rem 1rem;font-size:0.75rem;color:var(--blue)}
+.dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(74,222,128,.3)}50%{opacity:.3;box-shadow:0 0 0 5px rgba(74,222,128,0)}}
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 3rem 5rem;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--blue-glow);border:1px solid var(--blue-border);border-radius:100px;padding:0.42rem 1.25rem;font-size:0.75rem;color:var(--blue);letter-spacing:0.14em;text-transform:uppercase;font-weight:600;margin-bottom:2.5rem}
+.hero-name{font-family:'Montserrat',sans-serif;font-weight:900;line-height:0.9;letter-spacing:-0.03em;margin-bottom:2rem}
+.hero-name .first{display:block;font-size:clamp(3rem,8vw,7rem);color:var(--text)}
+.hero-name .last{display:block;font-size:clamp(3rem,8vw,7rem);background:linear-gradient(135deg,#3b82f6,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-role{font-size:1rem;color:var(--muted);letter-spacing:0.2em;text-transform:uppercase;font-weight:500;margin-bottom:1.5rem;font-family:'Montserrat',sans-serif}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:620px;margin:0 auto 2.75rem;line-height:1.85;font-weight:300}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:0.85rem 2rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;letter-spacing:0.01em}
+.btn-primary{background:var(--blue);color:#fff;border:none;box-shadow:0 4px 24px rgba(59,130,246,0.3)}
+.btn-primary:hover{background:#60a5fa;transform:translateY(-2px);box-shadow:0 8px 32px rgba(59,130,246,0.4)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-glow)}
+.hero-stats{display:flex;gap:3rem;margin-top:4.5rem;padding-top:3rem;border-top:1px solid var(--border);justify-content:center;flex-wrap:wrap;text-align:center}
+.stat-val{font-family:'Montserrat',sans-serif;font-size:2.2rem;font-weight:900;color:var(--blue);line-height:1;margin-bottom:0.35rem}
+.stat-label{font-size:0.75rem;color:var(--muted);letter-spacing:0.07em;text-transform:uppercase}
+#about{padding:7rem 3rem;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4rem;align-items:center}
+.section-label{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue);margin-bottom:0.875rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
+.section-label::before{content:'✦'}
+h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;letter-spacing:-0.03em;margin-bottom:1.25rem}
+h2 span{color:var(--blue)}
+.about-text{color:var(--muted);line-height:1.9;font-weight:300;font-size:0.95rem}
+.about-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem}
+.info-row{display:flex;align-items:center;gap:14px;padding:0.875rem 0;border-bottom:1px solid var(--border)}
+.info-row:last-child{border:none}
+.info-icon{width:38px;height:38px;background:var(--blue-glow);border:1px solid var(--blue-border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.info-label{font-size:0.7rem;color:var(--sub);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.18rem}
+.info-val{font-size:0.88rem;color:var(--text);font-weight:500}
+#skills{padding:7rem 3rem;background:var(--surface);position:relative;z-index:1}
+.skills-inner{max-width:1100px;margin:0 auto}
+.skills-header{margin-bottom:3.5rem}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:border-color 0.2s,transform 0.2s}
+.skill-card:hover{border-color:var(--blue-border);transform:translateY(-3px)}
+.skill-card-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:0.95rem;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.skill-icon{width:34px;height:34px;background:var(--blue-glow);border:1px solid var(--blue-border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.75rem}
+.tag{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:6px;padding:3px 10px;font-size:0.73rem;color:var(--muted);transition:.2s}
+.tag:hover{border-color:var(--blue-border);color:var(--blue)}
+.tag-blue{background:var(--blue-glow);border-color:var(--blue-border);color:var(--blue)}
+#experience{padding:7rem 3rem;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.exp-header{margin-bottom:3.5rem}
+.timeline{display:flex;flex-direction:column;gap:1.5rem}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.25rem;position:relative;overflow:hidden;transition:border-color 0.2s,transform 0.2s}
+.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--blue),transparent)}
+.exp-card:hover{border-color:var(--blue-border);transform:translateX(4px)}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:0.5rem}
+.exp-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.2rem;color:var(--text)}
+.exp-company{color:var(--blue);font-weight:500;font-size:0.9rem;margin-bottom:0.2rem}
+.exp-period{background:var(--blue-glow);border:1px solid var(--blue-border);border-radius:100px;padding:0.28rem 1rem;font-size:0.75rem;color:var(--blue);white-space:nowrap;font-weight:600}
+.exp-project{font-size:0.75rem;color:var(--sub);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1.25rem}
+.exp-kpis{display:flex;flex-wrap:wrap;gap:1.25rem;margin-bottom:1.5rem;padding:1rem 1.25rem;background:rgba(59,130,246,0.05);border:1px solid var(--blue-border);border-radius:10px}
+.kpi-val{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:900;color:var(--blue);line-height:1}
+.kpi-val.green{color:#34d399}.kpi-val.amber{color:#fbbf24}
+.kpi-lbl{font-size:0.6rem;color:var(--sub);text-transform:uppercase;letter-spacing:0.06em;margin-top:0.12rem}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.exp-list li{display:flex;gap:12px;color:var(--muted);font-size:0.88rem;line-height:1.65;font-weight:300}
+.exp-list li::before{content:'▸';color:var(--blue);flex-shrink:0;margin-top:2px}
+.exp-list li strong{color:var(--text);font-weight:500}
+.exp-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+.exp-tech-tag{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 10px;font-size:0.7rem;color:var(--sub)}
+#education{padding:7rem 3rem;background:var(--surface);position:relative;z-index:1}
+.edu-inner{max-width:1100px;margin:0 auto}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:3rem}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:border-color 0.2s,transform 0.2s}
+.edu-card:hover{border-color:var(--blue-border);transform:translateY(-3px)}
+.edu-icon{font-size:2rem;margin-bottom:1rem}
+.edu-deg{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.05rem;margin-bottom:0.4rem;line-height:1.25}
+.edu-school{color:var(--blue);font-size:0.88rem;font-weight:500;margin-bottom:0.25rem}
+.edu-loc{color:var(--muted);font-size:0.8rem}
+#contact{padding:7rem 3rem;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.contact-wrapper{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.contact-tagline{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.1;letter-spacing:-0.03em;margin-bottom:0.875rem}
+.contact-tagline span{color:var(--blue)}
+.contact-sub{color:var(--muted);margin-bottom:2rem;font-weight:300;font-size:0.92rem}
+.contact-items{display:flex;flex-direction:column;gap:0.875rem}
+.contact-item{display:flex;align-items:center;gap:14px;padding:1rem 1.25rem;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:12px;color:var(--text);transition:border-color 0.2s,background 0.2s}
+.contact-item:hover{border-color:var(--blue-border);background:var(--blue-glow)}
+.contact-ico{width:40px;height:40px;background:var(--blue-glow);border:1px solid var(--blue-border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.contact-label{font-size:0.7rem;color:var(--sub);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.18rem}
+.contact-val{font-size:0.88rem;font-weight:500}
+footer{text-align:center;padding:2rem 3rem;border-top:1px solid var(--border);color:var(--sub);font-size:0.8rem;position:relative;z-index:1}
+footer span{color:var(--blue)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}.nav-links{display:none}
+  #hero,#about,#skills,#experience,#education,#contact{padding-left:1.5rem;padding-right:1.5rem}
+  .about-grid,.contact-wrapper,.edu-grid{grid-template-columns:1fr;gap:2rem}
+  .contact-wrapper{padding:2rem}.hero-stats{gap:2rem}
+}
+@media(max-width:480px){.hero-name .first,.hero-name .last{font-size:2.8rem}.exp-kpis{gap:.875rem}}
 </style>
 </head>
 <body>
-
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="tb-brand">
-    <div class="tb-av">SB</div>
-    <span class="tb-name">Srivardhan Bathula</span>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<nav>
+  <div class="nav-logo">SRIVARDHAN<span>.AI</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-badge"><div class="dot"></div>Open to Roles</div>
+</nav>
+<section id="hero">
+  <div class="hero-eyebrow">✦ AI / ML Engineer</div>
+  <div class="hero-name">
+    <span class="first">SRIVARDHAN</span>
+    <span class="last">BATHULA</span>
   </div>
-  <div class="tb-right">
-    <div class="tb-status"><div class="tb-dot"></div>Open to roles</div>
-    <a href="mailto:srivardhan.bathula.ai@gmail.com" class="tb-btn">Hire Me</a>
+  <div class="hero-role">AI · ML · LLMs · RAG · MLOps</div>
+  <p class="hero-sub">AI/ML Engineer with <strong>3+ years</strong> building production-grade ML, Deep Learning, and Generative AI systems across <strong>financial services</strong> and <strong>healthcare</strong>. Expert in LLMs, RAG pipelines, and agentic AI workflows.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+    <a href="#experience" class="btn btn-outline">View Work →</a>
   </div>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-mesh"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-wordmark">AI</div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="hero-year">2021 – PRESENT · UNITED STATES</span>
-    </div>
-    <div class="hero-name">
-      Srivardhan Bathula
-      <span class="hero-name-light">AI / ML Engineer</span>
-    </div>
-    <p class="hero-desc">Building production AI systems that process 500M+ records daily. Fraud detection at State Street. Clinical NLP at HCL Technologies. Systems that ship and stay up.</p>
-    <div class="hero-tags">
-      <span class="htag">#LLMs</span><span class="htag">#RAG</span><span class="htag">#AgenticAI</span><span class="htag">#MLOps</span><span class="htag">#FraudDetection</span><span class="htag">#ClinicalNLP</span><span class="htag">#LangGraph</span><span class="htag">#AWSsageMaker</span>
-    </div>
+  <div class="hero-stats">
+    <div><div class="stat-val">0.87</div><div class="stat-label">Fraud F1 Score</div></div>
+    <div><div class="stat-val">$2M</div><div class="stat-label">Annual Savings</div></div>
+    <div><div class="stat-val">91%</div><div class="stat-label">NER Precision</div></div>
+    <div><div class="stat-val">99.9%</div><div class="stat-label">System Uptime</div></div>
   </div>
-</div>
-
-<!-- STAT BAR -->
-<div class="statbar">
-  <div class="sc"><div class="sc-n blue">0.87</div><div class="sc-l">Fraud F1 Score</div></div>
-  <div class="sc"><div class="sc-n orange">$2M</div><div class="sc-l">Annual Savings</div></div>
-  <div class="sc"><div class="sc-n green">91%</div><div class="sc-l">NER Precision</div></div>
-  <div class="sc"><div class="sc-n" style="color:#0A0A08">99.9%</div><div class="sc-l">System Uptime</div></div>
-</div>
-
-<!-- TABS -->
-<div class="tabs">
-  <div class="tab active" onclick="setTab(this)">About me</div>
-  <div class="tab" onclick="setTab(this)">Experience</div>
-  <div class="tab" onclick="setTab(this)">Projects</div>
-  <div class="tab" onclick="setTab(this)">Skills</div>
-  <div class="tab" onclick="setTab(this)">Contact</div>
-</div>
-
-<!-- CONTENT -->
-<div class="content">
-
-  <!-- ABOUT -->
-  <div class="about-grid rv">
-    <div class="profile-card">
-      <div class="pc-mesh"></div>
-      <div class="pc-inner">
-        <div class="pc-top">
-          <div class="pc-hi">Hello,</div>
-          <div class="pc-name">I'm<br>Srivardhan</div>
-          <div class="pc-role">AI / ML ENGINEER</div>
-        </div>
-        <div class="pc-bottom">Building AI that processes 500M+ records daily and saves $2M annually in production.</div>
-      </div>
+</section>
+<section id="about">
+  <div class="about-grid reveal">
+    <div>
+      <div class="section-label">About Me</div>
+      <h2>Building AI that ships to <span>production</span></h2>
+      <p class="about-text">AI/ML Engineer with expertise in Python, PyTorch, TensorFlow, and AWS. I bridge the gap between research and production — delivering scalable, reliable AI systems with measurable business impact. Specialized in financial crime detection, clinical NLP, LLM-powered applications, RAG systems, and enterprise MLOps.</p>
     </div>
-    <div class="right-stack">
-      <div class="bio-card">
-        <div class="bio-label">Introduction</div>
-        <div class="bio-inner">
-          <div>
-            <div class="bio-text-title">AI/ML Engineer based in United States</div>
-            <div class="bio-text-body">3+ years building production-grade AI across <strong>financial services</strong> and <strong>healthcare</strong>. Currently at <strong>State Street</strong> powering intelligent fraud detection. Previously at <strong>HCL Technologies</strong> building enterprise clinical NLP. Expert in LLMs, RAG pipelines, agentic workflows, and full MLOps lifecycle.</div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-card">
-        <div class="bio-label">Get In Touch</div>
-        <div class="contact-btns">
-          <a href="mailto:srivardhan.bathula.ai@gmail.com" class="cbtn">
-            <div class="cbtn-ico">✉</div>
-            <div class="cbtn-lbl">srivardhan.bathula<br>.ai@gmail.com</div>
-          </a>
-          <a href="https://linkedin.com/in/srivardhanb" target="_blank" class="cbtn">
-            <div class="cbtn-ico" style="font-weight:700;font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif">in</div>
-            <div class="cbtn-lbl">linkedin.com/in/<br>srivardhanb</div>
-          </a>
-          <a href="https://github.com/SrivardhanBathula" target="_blank" class="cbtn">
-            <div class="cbtn-ico" style="font-family:'JetBrains Mono',monospace;font-size:.75rem">gh</div>
-            <div class="cbtn-lbl">SrivardhanBathula</div>
-          </a>
-        </div>
-      </div>
+    <div class="about-card">
+      <div class="info-row"><div class="info-icon">📍</div><div><div class="info-label">Location</div><div class="info-val">United States</div></div></div>
+      <div class="info-row"><div class="info-icon">✉️</div><div><div class="info-label">Email</div><div class="info-val">srivardhan.bathula.ai@gmail.com</div></div></div>
+      <div class="info-row"><div class="info-icon">📞</div><div><div class="info-label">Phone</div><div class="info-val">+1 (913) 407-3539</div></div></div>
+      <div class="info-row"><div class="info-icon">🎓</div><div><div class="info-label">Education</div><div class="info-val">M.S. Computer Science</div></div></div>
+      <div class="info-row"><div class="info-icon">💼</div><div><div class="info-label">Status</div><div class="info-val" style="color:var(--blue)">Open · Remote · Full-time</div></div></div>
     </div>
   </div>
-
-  <!-- EXPERIENCE -->
-  <div class="rv">
-    <div class="sec-h">
-      <div class="sec-h-left"><div class="sec-h-pip"></div><div class="sec-h-title">Experience</div><span class="sec-h-badge">02 roles</span></div>
-      <div class="sec-h-btn">↓</div>
-    </div>
-    <div class="exp-list">
-
-      <div class="exp-card">
-        <div class="exp-card-top">
-          <span class="exp-badge eb-blue">2025 – Present</span>
-          <div class="exp-chk">✓</div>
-        </div>
-        <div class="exp-src">State Street · United States</div>
-        <div class="exp-title">AI/ML Engineer — Intelligent Financial Crime Detection & Risk Analytics Platform</div>
-        <div class="exp-tl">
-          <span class="exp-tl-lbl">Oct 2025</span>
-          <div class="exp-tl-track"><div class="exp-tl-fill fill-blue" style="width:100%"></div></div>
-          <span class="exp-tl-lbl">Present</span>
-        </div>
-        <div class="exp-kpis">
-          <div><div class="ek-val blue">0.74→0.87</div><div class="ek-lbl">F1 Score</div></div>
-          <div><div class="ek-val amber">$2M/yr</div><div class="ek-lbl">Savings</div></div>
-          <div><div class="ek-val green">+30%</div><div class="ek-lbl">Throughput</div></div>
-          <div><div class="ek-val blue">99.9%</div><div class="ek-lbl">Uptime</div></div>
-        </div>
-        <div class="exp-bullets">
-          <div class="exp-b">Developed fraud detection platform analyzing <b>500M+ daily records</b> using XGBoost, TensorFlow, and PyTorch — F1 improved from 0.74 to <b>0.87</b>.</div>
-          <div class="exp-b">Reduced false positives 15%, saving <b>$2M annually</b>. Built PySpark and Databricks pipelines reducing processing time by <b>35%</b>.</div>
-          <div class="exp-b">LangGraph multi-agent investigation workflows with RAG over Amazon OpenSearch — throughput from <b>40 to 52 cases/day (+30%)</b>, investigation time down 20%.</div>
-          <div class="exp-b">Deployed 6 microservices at <b>99.9% uptime</b> on AWS SageMaker. Terraform IaC. MLflow tracking. Prometheus + Grafana observability.</div>
-        </div>
-        <div class="exp-tags">
-          <span class="exp-tag">XGBoost</span><span class="exp-tag">TensorFlow</span><span class="exp-tag">LangGraph</span><span class="exp-tag">LangChain</span><span class="exp-tag">OpenAI</span><span class="exp-tag">RAG</span><span class="exp-tag">AWS SageMaker</span><span class="exp-tag">FastAPI</span><span class="exp-tag">MLflow</span><span class="exp-tag">Kafka</span><span class="exp-tag">PySpark</span><span class="exp-tag">Terraform</span>
-        </div>
-      </div>
-
-      <div class="exp-card">
-        <div class="exp-card-top">
-          <span class="exp-badge eb-green">2021 – 2024</span>
-          <div class="exp-chk">✓</div>
-        </div>
-        <div class="exp-src">HCL Technologies · India</div>
-        <div class="exp-title">AI/ML Engineer — AI-Driven Healthcare Intelligence & Clinical Analytics Platform</div>
-        <div class="exp-tl">
-          <span class="exp-tl-lbl">Sept 2021</span>
-          <div class="exp-tl-track"><div class="exp-tl-fill fill-green" style="width:100%"></div></div>
-          <span class="exp-tl-lbl">Jul 2024</span>
-        </div>
-        <div class="exp-kpis">
-          <div><div class="ek-val green">91%</div><div class="ek-lbl">NER Precision</div></div>
-          <div><div class="ek-val blue">+25%</div><div class="ek-lbl">ICU Accuracy</div></div>
-          <div><div class="ek-val green">10M+</div><div class="ek-lbl">Daily Records</div></div>
-          <div><div class="ek-val blue">-40%</div><div class="ek-lbl">Ops Overhead</div></div>
-        </div>
-        <div class="exp-bullets">
-          <div class="exp-b">Built ClinicalBERT + spaCy NER pipelines achieving <b>91% precision</b> across 18 clinical entity types on 500K+ unstructured clinical notes.</div>
-          <div class="exp-b">Processed <b>10M+ daily EHR records</b> standardized to OMOP CDM using ICD-10 and SNOMED CT mappings via distributed PySpark pipelines.</div>
-          <div class="exp-b">XGBoost + Cox survival analysis for ICU risk forecasting — clinical prediction accuracy improved by <b>25%</b> through workload profiling.</div>
-          <div class="exp-b">Prometheus + Grafana observability replaced manual monitoring, reducing operational overhead by <b>40%</b>. HIPAA-compliant AWS deployment.</div>
-        </div>
-        <div class="exp-tags">
-          <span class="exp-tag">ClinicalBERT</span><span class="exp-tag">spaCy</span><span class="exp-tag">XGBoost</span><span class="exp-tag">OMOP CDM</span><span class="exp-tag">PySpark</span><span class="exp-tag">Prometheus</span><span class="exp-tag">Grafana</span><span class="exp-tag">Docker</span><span class="exp-tag">Kubernetes</span><span class="exp-tag">MLflow</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- PROJECTS -->
-  <div class="rv">
-    <div class="sec-h">
-      <div class="sec-h-left"><div class="sec-h-pip"></div><div class="sec-h-title">Projects</div><span class="sec-h-badge">04 repos</span></div>
-      <div class="sec-h-btn">↓</div>
-    </div>
-    <div class="bento">
-
-      <a href="https://github.com/SrivardhanBathula/financial-crime-detection-platform" target="_blank" class="bc s7 bc-dark">
-        <div class="bc-arr">↗</div>
-        <div class="bc-cat">Financial AI · Production</div>
-        <div class="bc-title">Financial Crime Detection Platform</div>
-        <p class="bc-desc">Real-time fraud detection on 500M+ daily records. LangGraph multi-agent workflows with RAG over Amazon OpenSearch. Automated SAR generation via GPT-4o.</p>
-        <div class="bc-kpis">
-          <div><div class="bk-v g">0.87</div><div class="bk-l">F1 Score</div></div>
-          <div><div class="bk-v b">$2M</div><div class="bk-l">Saved/yr</div></div>
-          <div><div class="bk-v g">99.9%</div><div class="bk-l">Uptime</div></div>
-        </div>
-        <div class="bc-chips"><span class="bchip">XGBoost</span><span class="bchip">LangGraph</span><span class="bchip">RAG</span><span class="bchip">SageMaker</span><span class="bchip">FastAPI</span></div>
-      </a>
-
-      <a href="https://github.com/SrivardhanBathula/healthcare-intelligence-platform" target="_blank" class="bc s5 bc-white">
-        <div class="bc-arr">↗</div>
-        <div class="bc-cat">Healthcare AI · HIPAA</div>
-        <div class="bc-title">Healthcare Intelligence Platform</div>
-        <p class="bc-desc">ClinicalBERT NER at 91% precision. ICU risk forecasting on 10M+ daily EHR records. OMOP CDM standardization.</p>
-        <div class="bc-kpis">
-          <div><div class="bk-v g">91%</div><div class="bk-l">NER Precision</div></div>
-          <div><div class="bk-v b">+25%</div><div class="bk-l">ICU Accuracy</div></div>
-        </div>
-        <div class="bc-chips"><span class="bchip">ClinicalBERT</span><span class="bchip">spaCy</span><span class="bchip">XGBoost</span><span class="bchip">OMOP CDM</span></div>
-      </a>
-
-      <a href="https://github.com/SrivardhanBathula/rag-document-intelligence" target="_blank" class="bc s4 bc-blue">
-        <div class="bc-arr">↗</div>
-        <div class="bc-cat">RAG · Open Source</div>
-        <div class="bc-title">RAG Document Intelligence</div>
-        <p class="bc-desc">Hybrid FAISS+BM25 retrieval, cross-encoder reranking, LLM-as-a-Judge faithfulness guard. RAGAS: 0.94.</p>
-        <div class="bc-kpis">
-          <div><div class="bk-v w">0.94</div><div class="bk-l">RAGAS Score</div></div>
-        </div>
-        <div class="bc-chips"><span class="bchip">LangChain</span><span class="bchip">FAISS</span><span class="bchip">OpenAI</span></div>
-      </a>
-
-      <a href="https://github.com/SrivardhanBathula/llm-evaluation-safety-framework" target="_blank" class="bc s8 bc-slate">
-        <div class="bc-arr">↗</div>
-        <div class="bc-cat">LLM Safety · Evaluation</div>
-        <div class="bc-title">LLM Evaluation & Safety Framework</div>
-        <p class="bc-desc">Hallucination detection, prompt injection resistance across 50+ adversarial patterns, demographic bias auditing across gender, race, and age. LLM-as-a-Judge with regression CI/CD suite.</p>
-        <div class="bc-kpis">
-          <div><div class="bk-v g">94%</div><div class="bk-l">Injection Resistance</div></div>
-          <div><div class="bk-v b">50+</div><div class="bk-l">Attack Patterns</div></div>
-          <div><div class="bk-v g">3</div><div class="bk-l">Bias Attributes</div></div>
-        </div>
-        <div class="bc-chips"><span class="bchip">DeepEval</span><span class="bchip">Arize Phoenix</span><span class="bchip">GPT-4o</span><span class="bchip">RAGAS</span><span class="bchip">pytest</span></div>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- SKILLS -->
-  <div class="rv">
-    <div class="sec-h">
-      <div class="sec-h-left"><div class="sec-h-pip"></div><div class="sec-h-title">Technical Expertise</div></div>
-      <div class="sec-h-btn">↓</div>
-    </div>
+</section>
+<section id="skills">
+  <div class="skills-inner">
+    <div class="skills-header reveal"><div class="section-label">Technical Skills</div><h2>What I work with</h2></div>
     <div class="skills-grid">
-      <div class="sk-card"><div class="sk-ico">🤖</div><div class="sk-name">Agentic AI & LLMs</div><div class="sk-pills"><span class="skp sp-blue">#LangChain</span><span class="skp sp-blue">#LangGraph</span><span class="skp sp-blue">#LlamaIndex</span><span class="skp sp-blue">#OpenAI</span><span class="skp sp-gray">#RAG</span><span class="skp sp-gray">#ReAct</span><span class="skp sp-gray">#FineTuning</span></div></div>
-      <div class="sk-card"><div class="sk-ico">🧠</div><div class="sk-name">ML & Deep Learning</div><div class="sk-pills"><span class="skp sp-gray">#PyTorch</span><span class="skp sp-gray">#TensorFlow</span><span class="skp sp-gray">#XGBoost</span><span class="skp sp-gray">#LightGBM</span><span class="skp sp-gray">#Scikit-Learn</span><span class="skp sp-gray">#SparkML</span></div></div>
-      <div class="sk-card"><div class="sk-ico">☁️</div><div class="sk-name">MLOps & Cloud</div><div class="sk-pills"><span class="skp sp-green">#AWS_SageMaker</span><span class="skp sp-green">#MLflow</span><span class="skp sp-green">#Docker</span><span class="skp sp-green">#Kubernetes</span><span class="skp sp-gray">#Terraform</span><span class="skp sp-gray">#CI_CD</span></div></div>
-      <div class="sk-card dk"><div class="sk-ico">🔬</div><div class="sk-name">NLP & Clinical AI</div><div class="sk-pills"><span class="skp sp-dk">#ClinicalBERT</span><span class="skp sp-dk">#BERT</span><span class="skp sp-dk">#spaCy</span><span class="skp sp-dk">#NER</span><span class="skp sp-dk">#OMOP_CDM</span><span class="skp sp-dk">#Transformers</span></div></div>
-      <div class="sk-card dk"><div class="sk-ico">⚡</div><div class="sk-name">Data Engineering</div><div class="sk-pills"><span class="skp sp-dk">#PySpark</span><span class="skp sp-dk">#Databricks</span><span class="skp sp-dk">#Kafka</span><span class="skp sp-dk">#Airflow</span><span class="skp sp-dk">#NiFi</span><span class="skp sp-dk">#SQL</span></div></div>
-      <div class="sk-card dk"><div class="sk-ico">🛡️</div><div class="sk-name">AI Safety & Eval</div><div class="sk-pills"><span class="skp sp-dk">#DeepEval</span><span class="skp sp-dk">#Phoenix</span><span class="skp sp-dk">#RAGAS</span><span class="skp sp-dk">#HIPAA</span><span class="skp sp-dk">#BiasDetection</span><span class="skp sp-dk">#GDPR</span></div></div>
+      <div class="skill-card reveal"><div class="skill-card-title"><div class="skill-icon">🤖</div>Agentic AI & GenAI</div><div class="tags"><span class="tag tag-blue">LangChain</span><span class="tag tag-blue">LangGraph</span><span class="tag tag-blue">LlamaIndex</span><span class="tag">RAG Systems</span><span class="tag">OpenAI API</span><span class="tag">AWS Bedrock</span><span class="tag">Fine-Tuning</span><span class="tag">ReAct</span></div></div>
+      <div class="skill-card reveal"><div class="skill-card-title"><div class="skill-icon">🧠</div>ML, DL & NLP</div><div class="tags"><span class="tag tag-blue">PyTorch</span><span class="tag tag-blue">TensorFlow</span><span class="tag tag-blue">XGBoost</span><span class="tag">Scikit-Learn</span><span class="tag">LightGBM</span><span class="tag">BERT</span><span class="tag">ClinicalBERT</span><span class="tag">Transformers</span><span class="tag">spaCy</span></div></div>
+      <div class="skill-card reveal"><div class="skill-card-title"><div class="skill-icon">☁️</div>Cloud & MLOps</div><div class="tags"><span class="tag tag-blue">AWS SageMaker</span><span class="tag tag-blue">Docker</span><span class="tag tag-blue">Kubernetes</span><span class="tag">MLflow</span><span class="tag">Terraform</span><span class="tag">FastAPI</span><span class="tag">Azure ML</span><span class="tag">CI/CD</span></div></div>
+      <div class="skill-card reveal"><div class="skill-card-title"><div class="skill-icon">📊</div>Data Engineering</div><div class="tags"><span class="tag tag-blue">Apache Spark</span><span class="tag tag-blue">Apache Kafka</span><span class="tag">Databricks</span><span class="tag">Airflow</span><span class="tag">Hadoop</span><span class="tag">FAISS</span><span class="tag">Pinecone</span><span class="tag">Amazon OpenSearch</span></div></div>
+      <div class="skill-card reveal"><div class="skill-card-title"><div class="skill-icon">🔒</div>AI Safety & Governance</div><div class="tags"><span class="tag tag-blue">DeepEval</span><span class="tag tag-blue">Arize Phoenix</span><span class="tag">RAGAS</span><span class="tag">LLM-as-a-Judge</span><span class="tag">HIPAA</span><span class="tag">GDPR</span><span class="tag">Bias Mitigation</span></div></div>
+      <div class="skill-card reveal"><div class="skill-card-title"><div class="skill-icon">📈</div>Observability</div><div class="tags"><span class="tag tag-blue">Prometheus</span><span class="tag tag-blue">Grafana</span><span class="tag">CloudWatch</span><span class="tag">Evidently AI</span><span class="tag">Model Drift Detection</span><span class="tag">SLA Management</span></div></div>
     </div>
   </div>
-
-  <!-- EDUCATION — no years -->
-  <div class="rv">
-    <div class="sec-h">
-      <div class="sec-h-left"><div class="sec-h-pip"></div><div class="sec-h-title">Education</div></div>
-      <div class="sec-h-btn">↓</div>
-    </div>
-    <div class="edu-row">
-      <div class="edu-card">
-        <div class="edu-card-in">
-          <div>
-            <div class="edu-deg">Master of Science,<br>Computer Science</div>
-            <div class="edu-uni">University of Central Missouri</div>
-            <div class="edu-loc">Warrensburg, MO · USA</div>
-          </div>
-          <div class="edu-chk">✓</div>
-        </div>
+</section>
+<section id="experience">
+  <div class="exp-header reveal"><div class="section-label">Work Experience</div><h2>Professional <span>Journey</span></h2></div>
+  <div class="timeline">
+    <div class="exp-card reveal">
+      <div class="exp-top">
+        <div><div class="exp-title">AI/ML Engineer</div><div class="exp-company">State Street · United States</div><div class="exp-project">Intelligent Financial Crime Detection & Risk Analytics Platform</div></div>
+        <span class="exp-period">Oct 2025 — Present</span>
       </div>
-      <div class="edu-card">
-        <div class="edu-card-in">
-          <div>
-            <div class="edu-deg">Bachelor of Technology,<br>Computer Science</div>
-            <div class="edu-uni">Bharat Institute of Engineering & Technology</div>
-            <div class="edu-loc">Hyderabad, India</div>
-          </div>
-          <div class="edu-chk">✓</div>
-        </div>
+      <div class="exp-kpis">
+        <div><div class="kpi-val">0.74→0.87</div><div class="kpi-lbl">F1 Score</div></div>
+        <div><div class="kpi-val amber">$2M/yr</div><div class="kpi-lbl">Cost Savings</div></div>
+        <div><div class="kpi-val green">+30%</div><div class="kpi-lbl">Analyst Throughput</div></div>
+        <div><div class="kpi-val">99.9%</div><div class="kpi-lbl">System Uptime</div></div>
+        <div><div class="kpi-val green">-35%</div><div class="kpi-lbl">Processing Time</div></div>
+      </div>
+      <ul class="exp-list">
+        <li>Developed AI-driven financial crime detection platform using XGBoost, TensorFlow, and PyTorch — analyzing <strong>500M+ daily records</strong> and improving fraud detection F1 score from <strong>0.74 to 0.87</strong>.</li>
+        <li>Built scalable PySpark and Databricks pipelines reducing processing time by <strong>35%</strong>. Reduced false positives 15%, saving <strong>$2M annually</strong>.</li>
+        <li>Implemented LangGraph multi-agent investigation workflows with RAG over Amazon OpenSearch — analyst throughput from <strong>40 to 52 cases/day (+30%)</strong>, investigation time down 20%.</li>
+        <li>Deployed 6 production microservices on FastAPI, Docker, Kubernetes, and AWS SageMaker with <strong>99.9% uptime</strong>. Terraform IaC. MLflow tracking. Prometheus and Grafana observability.</li>
+      </ul>
+      <div class="exp-tech"><span class="exp-tech-tag">XGBoost</span><span class="exp-tech-tag">TensorFlow</span><span class="exp-tech-tag">LangGraph</span><span class="exp-tech-tag">LangChain</span><span class="exp-tech-tag">OpenAI</span><span class="exp-tech-tag">RAG</span><span class="exp-tech-tag">AWS SageMaker</span><span class="exp-tech-tag">FastAPI</span><span class="exp-tech-tag">MLflow</span><span class="exp-tech-tag">Kafka</span><span class="exp-tech-tag">PySpark</span><span class="exp-tech-tag">Terraform</span></div>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-top">
+        <div><div class="exp-title">AI/ML Engineer</div><div class="exp-company">HCL Technologies · India</div><div class="exp-project">AI-Driven Healthcare Intelligence & Clinical Analytics Platform</div></div>
+        <span class="exp-period">Sept 2021 — Jul 2024</span>
+      </div>
+      <div class="exp-kpis">
+        <div><div class="kpi-val green">91%</div><div class="kpi-lbl">NER Precision</div></div>
+        <div><div class="kpi-val">+25%</div><div class="kpi-lbl">ICU Accuracy</div></div>
+        <div><div class="kpi-val green">10M+</div><div class="kpi-lbl">Daily Records</div></div>
+        <div><div class="kpi-val">-40%</div><div class="kpi-lbl">Ops Overhead</div></div>
+        <div><div class="kpi-val green">18</div><div class="kpi-lbl">Entity Types</div></div>
+      </div>
+      <ul class="exp-list">
+        <li>Architected distributed data pipelines processing <strong>10M+ daily EHR records</strong> — standardized to OMOP CDM using ICD-10 and SNOMED CT mappings.</li>
+        <li>Built ClinicalBERT and spaCy NER pipelines achieving <strong>91% precision</strong> across <strong>18 clinical entity types</strong> on 500K+ unstructured clinical notes.</li>
+        <li>Developed XGBoost and Cox survival analysis models for real-time ICU forecasting — clinical prediction accuracy improved by <strong>25%</strong>.</li>
+        <li>Designed Prometheus and Grafana observability frameworks, replacing manual tracking and reducing operational overhead by <strong>40%</strong>. HIPAA-compliant AWS deployment.</li>
+      </ul>
+      <div class="exp-tech"><span class="exp-tech-tag">ClinicalBERT</span><span class="exp-tech-tag">spaCy</span><span class="exp-tech-tag">XGBoost</span><span class="exp-tech-tag">Scikit-Learn</span><span class="exp-tech-tag">OMOP CDM</span><span class="exp-tech-tag">PySpark</span><span class="exp-tech-tag">Prometheus</span><span class="exp-tech-tag">Grafana</span><span class="exp-tech-tag">Docker</span><span class="exp-tech-tag">Kubernetes</span><span class="exp-tech-tag">MLflow</span></div>
+    </div>
+  </div>
+</section>
+<section id="education">
+  <div class="edu-inner">
+    <div class="reveal"><div class="section-label">Education</div><h2>Academic <span>Background</span></h2></div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-deg">Master of Science,<br>Computer Science</div>
+        <div class="edu-school">University of Central Missouri</div>
+        <div class="edu-loc">Warrensburg, MO · United States</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon">📘</div>
+        <div class="edu-deg">Bachelor of Technology,<br>Computer Science</div>
+        <div class="edu-school">Bharat Institute of Engineering & Technology</div>
+        <div class="edu-loc">Hyderabad, India</div>
       </div>
     </div>
   </div>
-
-  <!-- CONTACT -->
-  <div class="rv">
-    <div class="sec-h">
-      <div class="sec-h-left"><div class="sec-h-pip"></div><div class="sec-h-title">Contact</div></div>
-      <div class="sec-h-btn">↓</div>
+</section>
+<section id="contact">
+  <div class="contact-wrapper reveal">
+    <div>
+      <div class="section-label">Contact</div>
+      <div class="contact-tagline">Let's build something <span>intelligent</span> together</div>
+      <p class="contact-sub">Open to full-time, remote, and contract AI/ML engineering roles. Targeting Amazon AWS, Anthropic, Cohere, Adobe, Databricks, and top AI startups.</p>
+      <a href="mailto:srivardhan.bathula.ai@gmail.com" class="btn btn-primary" style="margin-top:.5rem">Send an Email →</a>
     </div>
-    <div class="contact-row">
-      <a href="mailto:srivardhan.bathula.ai@gmail.com" class="cl-card"><div class="cl-ico">✉</div><div class="cl-lbl">Email</div><div class="cl-val" style="font-size:.68rem">srivardhan.bathula<br>.ai@gmail.com</div></a>
-      <a href="https://linkedin.com/in/srivardhanb" target="_blank" class="cl-card"><div class="cl-ico">💼</div><div class="cl-lbl">LinkedIn</div><div class="cl-val">srivardhanb</div></a>
-      <a href="https://github.com/SrivardhanBathula" target="_blank" class="cl-card"><div class="cl-ico">⚡</div><div class="cl-lbl">GitHub</div><div class="cl-val">SrivardhanBathula</div></a>
-      <a href="tel:+19134073539" class="cl-card"><div class="cl-ico">📱</div><div class="cl-lbl">Phone</div><div class="cl-val">+1 (913) 407-3539</div></a>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="footer-text">
-      © 2026 Srivardhan Bathula · AI/ML Engineer · United States · Open to Remote<br>
-      srivardhan.bathula.ai@gmail.com · linkedin.com/in/srivardhanb · github.com/SrivardhanBathula
+    <div class="contact-items">
+      <a href="mailto:srivardhan.bathula.ai@gmail.com" class="contact-item"><div class="contact-ico">✉️</div><div><div class="contact-label">Email</div><div class="contact-val">srivardhan.bathula.ai@gmail.com</div></div></a>
+      <a href="https://linkedin.com/in/srivardhanb" target="_blank" class="contact-item"><div class="contact-ico">💼</div><div><div class="contact-label">LinkedIn</div><div class="contact-val">linkedin.com/in/srivardhanb</div></div></a>
+      <a href="https://github.com/SrivardhanBathula" target="_blank" class="contact-item"><div class="contact-ico">⚡</div><div><div class="contact-label">GitHub</div><div class="contact-val">github.com/SrivardhanBathula</div></div></a>
+      <a href="tel:+19134073539" class="contact-item"><div class="contact-ico">📱</div><div><div class="contact-label">Phone</div><div class="contact-val">+1 (913) 407-3539</div></div></a>
     </div>
   </div>
-
-</div>
-
+</section>
+<footer><p>© 2026 <span>Srivardhan Bathula</span> · AI/ML Engineer · United States · Open to Remote</p></footer>
 <script>
-function setTab(el) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
-}
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('on'), i * 80);
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.07 });
-document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
