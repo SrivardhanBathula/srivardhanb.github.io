@@ -120,9 +120,30 @@ h2 span{color:var(--blue)}
 .contact-val{font-size:0.88rem;font-weight:500}
 footer{text-align:center;padding:2rem 3rem;border-top:1px solid var(--border);color:var(--sub);font-size:0.8rem;position:relative;z-index:1}
 footer span{color:var(--blue)}
+#projects{padding:7rem 3rem;background:var(--surface);position:relative;z-index:1}
+.proj-inner{max-width:1100px;margin:0 auto}
+.proj-header{margin-bottom:3.5rem}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.75rem;display:block;color:inherit;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden}
+.proj-card:hover{border-color:var(--blue-border);transform:translateY(-3px)}
+.proj-card.featured{grid-column:span 2;background:linear-gradient(135deg,#0f1923 0%,#0d1520 100%);border-color:rgba(59,130,246,0.15)}
+.proj-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.75rem}
+.proj-cat{font-size:0.68rem;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;font-weight:600}
+.proj-arr{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.04);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--muted);transition:.2s;flex-shrink:0}
+.proj-card:hover .proj-arr{background:var(--blue);border-color:var(--blue);color:#fff;transform:rotate(45deg)}
+.proj-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;margin-bottom:.5rem;letter-spacing:-0.01em;line-height:1.2}
+.proj-desc{font-size:0.84rem;color:var(--muted);line-height:1.65;margin-bottom:1rem;font-weight:300}
+.proj-kpis{display:flex;gap:1.25rem;margin-bottom:.875rem;flex-wrap:wrap}
+.pk-v{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:900;line-height:1}
+.pk-v.b{color:var(--blue)}.pk-v.g{color:#34d399}.pk-v.a{color:#fbbf24}
+.pk-l{font-size:0.58rem;color:var(--sub);text-transform:uppercase;letter-spacing:0.06em;margin-top:.1rem}
+.proj-chips{display:flex;flex-wrap:wrap;gap:6px}
+.pchip{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:5px;padding:2px 10px;font-size:0.7rem;color:var(--sub)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease}
 .reveal.visible{opacity:1;transform:none}
 @media(max-width:768px){
+  .proj-grid{grid-template-columns:1fr}
+  .proj-card.featured{grid-column:span 1}
   nav{padding:1rem 1.5rem}.nav-links{display:none}
   #hero,#about,#skills,#experience,#education,#contact{padding-left:1.5rem;padding-right:1.5rem}
   .about-grid,.contact-wrapper,.edu-grid{grid-template-columns:1fr;gap:2rem}
@@ -141,6 +162,7 @@ footer span{color:var(--blue)}
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -177,7 +199,7 @@ footer span{color:var(--blue)}
       <div class="info-row"><div class="info-icon">✉️</div><div><div class="info-label">Email</div><div class="info-val">srivardhan.bathula.ai@gmail.com</div></div></div>
       <div class="info-row"><div class="info-icon">📞</div><div><div class="info-label">Phone</div><div class="info-val">+1 (913) 407-3539</div></div></div>
       <div class="info-row"><div class="info-icon">🎓</div><div><div class="info-label">Education</div><div class="info-val">M.S. Computer Science</div></div></div>
-      <div class="info-row"><div class="info-icon">💼</div><div><div class="info-label">Status</div><div class="info-val" style="color:var(--blue)">Open · Remote · Full-time</div></div></div>
+      <div class="info-row"><div class="info-icon">💼</div><div><div class="info-label">Available For</div><div class="info-val" style="color:var(--blue)">Full-Time AI/ML Engineer Roles<br><span style="font-size:.8rem;color:var(--muted);font-weight:400">Remote · Hybrid · Onsite</span></div></div></div>
     </div>
   </div>
 </section>
@@ -239,8 +261,59 @@ footer span{color:var(--blue)}
     </div>
   </div>
 </section>
+
+<section id="projects">
+  <div class="proj-inner">
+    <div class="proj-header reveal"><div class="section-label">Open Source Projects</div><h2>What I've <span>built</span></h2></div>
+    <div class="proj-grid">
+      <a href="https://github.com/SrivardhanBathula/financial-crime-detection-platform" target="_blank" class="proj-card featured reveal">
+        <div class="proj-card-top"><span class="proj-cat">Financial AI &middot; Production &middot; State Street</span><div class="proj-arr">&#8599;</div></div>
+        <div class="proj-title">Financial Crime Detection Platform</div>
+        <p class="proj-desc">Real-time fraud detection on 500M+ daily financial records. LangGraph multi-agent investigation workflows with RAG over Amazon OpenSearch. Automated SAR generation via GPT-4o. Full MLOps on AWS SageMaker.</p>
+        <div class="proj-kpis">
+          <div><div class="pk-v b">0.87</div><div class="pk-l">F1 Score</div></div>
+          <div><div class="pk-v a">$2M/yr</div><div class="pk-l">Cost Savings</div></div>
+          <div><div class="pk-v g">99.9%</div><div class="pk-l">Uptime</div></div>
+          <div><div class="pk-v b">+30%</div><div class="pk-l">Throughput</div></div>
+        </div>
+        <div class="proj-chips"><span class="pchip">XGBoost</span><span class="pchip">LangGraph</span><span class="pchip">LangChain</span><span class="pchip">RAG</span><span class="pchip">AWS SageMaker</span><span class="pchip">FastAPI</span><span class="pchip">MLflow</span><span class="pchip">Kafka</span></div>
+      </a>
+      <a href="https://github.com/SrivardhanBathula/healthcare-intelligence-platform" target="_blank" class="proj-card reveal">
+        <div class="proj-card-top"><span class="proj-cat">Healthcare AI &middot; HIPAA Compliant</span><div class="proj-arr">&#8599;</div></div>
+        <div class="proj-title">Healthcare Intelligence Platform</div>
+        <p class="proj-desc">ClinicalBERT NER achieving 91% precision across 18 entity types. ICU risk forecasting on 10M+ daily EHR records. OMOP CDM standardization. HIPAA-compliant AWS deployment.</p>
+        <div class="proj-kpis">
+          <div><div class="pk-v g">91%</div><div class="pk-l">NER Precision</div></div>
+          <div><div class="pk-v b">+25%</div><div class="pk-l">ICU Accuracy</div></div>
+          <div><div class="pk-v g">18</div><div class="pk-l">Entity Types</div></div>
+        </div>
+        <div class="proj-chips"><span class="pchip">ClinicalBERT</span><span class="pchip">spaCy</span><span class="pchip">XGBoost</span><span class="pchip">OMOP CDM</span><span class="pchip">PySpark</span></div>
+      </a>
+      <a href="https://github.com/SrivardhanBathula/rag-document-intelligence" target="_blank" class="proj-card reveal">
+        <div class="proj-card-top"><span class="proj-cat">RAG &middot; Open Source</span><div class="proj-arr">&#8599;</div></div>
+        <div class="proj-title">RAG Document Intelligence</div>
+        <p class="proj-desc">Hybrid FAISS+BM25 retrieval with cross-encoder reranking. LLM-as-a-Judge faithfulness guard. Streaming FastAPI. RAGAS faithfulness: 0.94.</p>
+        <div class="proj-kpis">
+          <div><div class="pk-v g">0.94</div><div class="pk-l">RAGAS Score</div></div>
+          <div><div class="pk-v b">Hybrid</div><div class="pk-l">Retrieval</div></div>
+        </div>
+        <div class="proj-chips"><span class="pchip">LangChain</span><span class="pchip">FAISS</span><span class="pchip">BM25</span><span class="pchip">OpenAI</span><span class="pchip">FastAPI</span></div>
+      </a>
+      <a href="https://github.com/SrivardhanBathula/llm-evaluation-safety-framework" target="_blank" class="proj-card reveal">
+        <div class="proj-card-top"><span class="proj-cat">LLM Safety &middot; Evaluation</span><div class="proj-arr">&#8599;</div></div>
+        <div class="proj-title">LLM Evaluation &amp; Safety Framework</div>
+        <p class="proj-desc">Hallucination detection, prompt injection resistance across 50+ adversarial patterns, demographic bias auditing, LLM-as-a-Judge scoring with CI/CD regression suite via pytest and GitHub Actions.</p>
+        <div class="proj-kpis">
+          <div><div class="pk-v g">94%</div><div class="pk-l">Injection Resistance</div></div>
+          <div><div class="pk-v b">50+</div><div class="pk-l">Attack Patterns</div></div>
+        </div>
+        <div class="proj-chips"><span class="pchip">DeepEval</span><span class="pchip">Arize Phoenix</span><span class="pchip">GPT-4o</span><span class="pchip">RAGAS</span><span class="pchip">pytest</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="education">
-  <div class="edu-inner">
     <div class="reveal"><div class="section-label">Education</div><h2>Academic <span>Background</span></h2></div>
     <div class="edu-grid">
       <div class="edu-card reveal">
